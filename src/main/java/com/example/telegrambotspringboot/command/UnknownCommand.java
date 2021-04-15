@@ -3,22 +3,20 @@ package com.example.telegrambotspringboot.command;
 import com.example.telegrambotspringboot.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-public class StartCommand implements Command{
+public class UnknownCommand implements Command{
 
-    private final static String START_MESSAGE = "Hello! My name is RandomBot, and i have some surprise for you." +
-            "\ud83d\udc6f\n\n" +
-            "Check it out, buddy!" +
-            "\ud83d\udcb8\n";
+    private final static String UNKNOWN_MESSAGE="Oops...If you don't know how to use this bot, type /help.\n\n" +
+            "GoGoGoGoGo\u26f7";
 
     private final SendBotMessageService sendBotMessageService;
 
-    public StartCommand(SendBotMessageService sendBotMessageService) {
+    public UnknownCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
     }
 
     @Override
     public void execute(Update update) {
         sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(),
-                START_MESSAGE);
+                UNKNOWN_MESSAGE);
     }
 }

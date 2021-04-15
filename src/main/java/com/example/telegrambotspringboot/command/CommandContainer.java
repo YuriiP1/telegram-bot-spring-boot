@@ -7,6 +7,7 @@ import static com.example.telegrambotspringboot.command.CommandName.*;
 
 public class CommandContainer {
     private final ImmutableMap<String, Command> commandMap;
+    private final Command defaultCommand;
 
     public CommandContainer(SendBotMessageService sendBotMessageService) {
         commandMap = ImmutableMap.<String, Command>builder()
@@ -14,9 +15,10 @@ public class CommandContainer {
                 .put(STOP.getCommandName(), new StopCommand(sendBotMessageService))
                 .put(HELP.getCommandName(), new HelpCommand(sendBotMessageService))
                 .build();
+        this.defaultCommand = new UnknownCommand(sendBotMessageService);
     }
 
     public Command retrieveCommand(String commandIdentifier) {
-        return commandMap.get(commandIdentifier);
+        return commandMap.getOrDefault(commandIdentifier, defaultCommand);
     }
 }
