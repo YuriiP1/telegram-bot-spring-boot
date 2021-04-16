@@ -3,6 +3,7 @@ package com.example.telegrambotspringboot.service;
 import com.example.telegrambotspringboot.bot.RandomBot;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Service
@@ -27,4 +28,5 @@ public class SendBotMessageServiceImpl implements SendBotMessageService{
             e.printStackTrace();
         }
     }
+
 }
