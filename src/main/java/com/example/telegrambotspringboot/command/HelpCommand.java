@@ -12,12 +12,14 @@ public class HelpCommand implements Command{
             "%s - stop working with me\n\n" +
             "%s - get help with existing commands\n\n" +
             "%s - some random general joke\n" +
-            "%s - some random programming joke\n",
+            "%s - some random programming joke\n\n" +
+                    "%s - get google url\n",
             START.getCommandName(),
             STOP.getCommandName(),
             HELP.getCommandName(),
             RANDOMPROGRAMMINGJOKE.getCommandName(),
-            RANDOMJOKE.getCommandName());
+            RANDOMJOKE.getCommandName(),
+            GOOGLE.getCommandName());
 
     private final SendBotMessageService sendBotMessageService;
 

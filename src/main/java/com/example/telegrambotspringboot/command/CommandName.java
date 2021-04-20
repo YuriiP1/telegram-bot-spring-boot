@@ -5,7 +5,8 @@ public enum CommandName {
     STOP("/stop"),
     HELP("/help"),
     RANDOMPROGRAMMINGJOKE("/randomprogrammingjoke"),
-    RANDOMJOKE("/randomjoke");
+    RANDOMJOKE("/randomjoke"),
+    GOOGLE("/google");
 
     private String commandName;
 
