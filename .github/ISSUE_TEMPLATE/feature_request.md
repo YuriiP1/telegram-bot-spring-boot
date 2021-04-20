@@ -1,7 +1,7 @@
 ---
 name: Feature request
-about: "[FEATURE] TBSB-1: implement deployment process"
-title: ''
+about: "TBSB-1: implement deployment process"
+title: '[FEATURE]'
 labels: enhancement
 assignees: YuriiP1
 
