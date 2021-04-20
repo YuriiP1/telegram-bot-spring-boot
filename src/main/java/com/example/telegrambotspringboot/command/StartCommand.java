@@ -1,9 +1,6 @@
 package com.example.telegrambotspringboot.command;
 
-import com.example.telegrambotspringboot.model.Joke;
-import com.example.telegrambotspringboot.service.SendBotMarkupService;
 import com.example.telegrambotspringboot.service.SendBotMessageService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
@@ -21,11 +18,10 @@ public class StartCommand implements Command{
             "Check it out, buddy!" +
             "\ud83d\udcb8\n";
 
+    private final SendBotMessageService sendBotMessageService;
 
-    private final SendBotMarkupService sendBotMarkupService;
-
-    public StartCommand(SendBotMarkupService sendBotMarkupService) {
-        this.sendBotMarkupService = sendBotMarkupService;
+    public StartCommand(SendBotMessageService sendBotMessageService) {
+        this.sendBotMessageService = sendBotMessageService;
     }
 
     @Override
@@ -40,7 +36,7 @@ public class StartCommand implements Command{
         keyboardRowList.add(row);
 
         replyKeyboardMarkup.setKeyboard(keyboardRowList);
-        sendBotMarkupService.sendMarkup(update.getMessage().getChatId().toString(),
+        sendBotMessageService.sendMessageWithMarkup(update.getMessage().getChatId().toString(),
                 START_MESSAGE,
                 replyKeyboardMarkup);
     }

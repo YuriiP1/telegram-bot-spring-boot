@@ -1,15 +1,11 @@
 package com.example.telegrambotspringboot.bot;
 
 import com.example.telegrambotspringboot.command.CommandContainer;
-import com.example.telegrambotspringboot.service.SendBotMarkupServiceImpl;
 import com.example.telegrambotspringboot.service.SendBotMessageServiceImpl;
-import org.checkerframework.checker.units.qual.C;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Component
 public class RandomBot extends TelegramLongPollingBot {
@@ -26,8 +22,7 @@ public class RandomBot extends TelegramLongPollingBot {
 
 
     public RandomBot() {
-        commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),
-                new SendBotMarkupServiceImpl(this));
+        commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
     }
 
     @Override
